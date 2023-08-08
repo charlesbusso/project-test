@@ -1,5 +1,7 @@
 
 import './App.css'
+import { useState } from 'react'
+import Modal from './components/modal'
 
 const users = [
   {
@@ -34,23 +36,36 @@ const users = [
 ]
 
 function App() {
+  const [count, setCount] = useState(0)
+  const [valueInput, setValueInput] = useState('')
+  const [openModal, setOpenModal] = useState(false)
   
+  const add = () => {
+    setCount(count + 1)
+    
+  }
+
+  const  onChangeInput = (event) =>{
+    setValueInput(event.target.value)
+  }
   
   return (
-    <>
-     
-     <div>
-       <h1> Charles busso</h1>
-      </div>
-      <p className="read-the-docs">
-        Aprendendo react
-      </p>
-      <div>{users.map((user)=> (
-        
-        <div>{user.name}, {user.age},{user.address}</div>
-      ))}</div>
-      
-    </>
+   <div className='App'>
+    <h1>Charles Busso</h1>
+    <h3>{count}</h3>
+    <button onClick={add}>Adicionar</button>
+    <div>
+      <input onChange={onChangeInput}>
+      </input>
+    </div>
+    <h3>{valueInput}</h3>
+    <div>
+      <button onClick={() => setOpenModal(true) }>Abrir Modal</button>
+    </div>
+    <Modal isOpen= {openModal}/>
+
+   </div>
+   
   )
 }
 
