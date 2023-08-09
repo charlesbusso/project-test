@@ -1,6 +1,6 @@
-import React from 'react'
+/*import React from 'react'
 
-export default function modal({isOpen}) {
+export default function modal({isOpen, children, setModalOpen}) {
     const backGround_style = {
         position: 'fixed',
         top: '0',
@@ -18,7 +18,7 @@ export default function modal({isOpen}) {
         transform: 'translate(-50%,-50%)',
         padding: '150px',
         backgroundColor: '#fff',
-        borderRadius: '8px',
+        borderRadius: '10px',
         color: 'black',
 
     }
@@ -27,8 +27,12 @@ export default function modal({isOpen}) {
 
         return (
             <div style = {backGround_style}>
-                <div style = {modal_style}>modal</div>
-
+                <div style = {modal_style}>
+                    <div style={{cursor: 'pointer'}} onClick={setModalOpen}>x</div>
+                    <div>{children}</div>
+                   
+                    <button onClick={setModalOpen}>Fechar</button>
+                    </div>
              </div>
         )
     }
@@ -36,3 +40,4 @@ export default function modal({isOpen}) {
   
   
 }
+*/

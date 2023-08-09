@@ -1,44 +1,14 @@
 
-import './App.css'
+/*import './App.css'
 import { useState } from 'react'
 import Modal from './components/modal'
 
-const users = [
-  {
-    id: 1,
-    name:'Charles',
-    address:'Rua José correia dos santos',
-    age:'43',
-    isAdmin:'false',
-  },
-  {
-    id: 2,
-    name:'daniela',
-    address:'julio longhi',
-    age:'49',
-    isAdmin:'true',
-  },
-  {
-    id: 3,
-    name:'joel',
-    address:'mogi mirim',
-    age:'28',
-    isAdmin:'false',
-  },
-
-  {
-    id: 4,
-    name:'fabíola',
-    address:'mogi guaçu',
-    age:'30',
-    isAdmin:'false',
-  }
-]
 
 function App() {
   const [count, setCount] = useState(0)
   const [valueInput, setValueInput] = useState('')
   const [openModal, setOpenModal] = useState(false)
+  const [openModal2, setOpenModal2] = useState(false)
   
   const add = () => {
     setCount(count + 1)
@@ -61,12 +31,19 @@ function App() {
     <h3>{valueInput}</h3>
     <div>
       <button onClick={() => setOpenModal(true) }>Abrir Modal</button>
+      <button onClick={() => setOpenModal2(true) }>Abrir Modal 2</button>
     </div>
-    <Modal isOpen= {openModal}/>
-
+    <Modal isOpen= {openModal} setModalOpen ={() => setOpenModal(!openModal)}>
+    {<p>Oi , eu sou Charles Busso</p>}
+    </Modal>
+    <Modal isOpen= {openModal2}
+     setModalOpen ={() => setOpenModal2(!openModal2)}>
+    {<p>Oi , eu sou Charles Busso modal 2</p>}
+    </Modal>
    </div>
    
   )
 }
 
 export default App
+*/

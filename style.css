@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.contact-us{
+    background-image: linear-gradient(to right, #2a2a2a,#fff);
+    color: white;
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 40px;
+}
+.contact-us p {
+    margin: 30px;
+}
+form{
+    padding: 40px;
+}
+
+.name label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 0.3rem;
+}
+.name input{
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.invalid{
+    border: 1px solid red;
+}
+.error{
+    font-size: 15px;
+    color: red;
+}
+.error-hidden{
+    display: none;
+    
+}
+hr{
+    background-image:  linear-gradient(to right, #2a2a2a,#fff);
+    margin: 10px;
+}
+button{
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+    background: none;
+    border: 1px solid blue;
+    width: 100px;
+    cursor: pointer;
+    
+}
+button:hover{
+    background-image:  linear-gradient(to right, #2a2a2a,#fff);
+    color: white;
+    border: 1px solid blue;
+
+}
