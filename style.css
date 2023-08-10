@@ -17,13 +17,16 @@
 form{
     padding: 40px;
 }
+.inputField{
+    padding: 10px;
+}
 
-.name label {
+.inputField label {
     display: block;
     font-size: 20px;
     margin-bottom: 0.3rem;
 }
-.name input{
+.inputField input{
     border-radius: 5px;
     cursor: pointer;
     width: 300px;
@@ -60,4 +63,8 @@ button:hover{
     color: white;
     border: 1px solid blue;
 
+}
+.thanks{
+    padding: 40px;
+    align-items: center;
 }

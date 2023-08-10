@@ -16,14 +16,28 @@ const IsValidCPF = (cpf) => {
     
 
     const form = document.querySelector('form');
-    const input = document.querySelector('input[name="name"]');
+    const message = document.querySelector('.thanks');
+    const inputName = document.querySelector('input[name="name"]');
+    const inputEmail = document.querySelector('input[name="email"]');
 
     let isValidForm = false
+     const resetInput = (elem) => {
+        elem.classList.remove('invalid')
+        elem.nextElementSibling.classList.add('error-hidden')
+
+     }
 
     const validateInput = () => {
-        if(!input.value){
-            input.classList.add('invalid')
-            input.nextElementSibling.classList.remove('error-hidden')
+        isValidForm = true
+        if(!inputName.value){
+            inputName.classList.add('invalid')
+            inputName.nextElementSibling.classList.remove('error-hidden')
+            isValidForm = false
+        }
+        if(!isValidEmail(inputEmail.value)){
+            inputEmail.classList.add('invalid')
+            inputEmail.nextElementSibling.classList.remove('error-hidden')
+            isValidForm = false
         }
     }
 
@@ -31,12 +45,19 @@ const IsValidCPF = (cpf) => {
         e.preventDefault()
         validateInput()
         if (isValidForm){
+            form.remove()
+            message.classList.remove('error-hidden')
 
         }
     })
 
-    input.addEventListener('input',()=> {
-        input.classList.remove('invalid')
-        input.nextElementSibling.classList.add('error-hidden')
+    inputName.addEventListener('input',()=> {
+        resetInput(inputName)
+        
+        
+    })
+    inputEmail.addEventListener('input',()=> {
+        resetInput(inputEmail)
+        
         
     })
