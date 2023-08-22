@@ -1,24 +1,25 @@
 
-const isValidEmail = (email) => { 
+
+const isValidEmail = (email) => {
     const regex =
- /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-return regex.test(string(email).toLowerCase())
-}
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return regex.test(String(email).toLowerCase())
+  }
   
+  const isValidCPF = (cpf) => {
+    const regex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/
+    return regex.test(String(cpf).toLowerCase())
+  }
+ 
 
 
-
-
-const IsValidCPF = (cpf) => {
-    const regex  = /^\d{3}\.\d{3}\.\d{3}\d{2}$/
-    return regex. test(string(cpf))
-    }
     
 
     const form = document.querySelector('form');
     const message = document.querySelector('.thanks');
     const inputName = document.querySelector('input[name="name"]');
     const inputEmail = document.querySelector('input[name="email"]');
+    const inputCPF = document.querySelector('input[name="CPF"]');
 
     let isValidForm = false
      const resetInput = (elem) => {
@@ -26,20 +27,25 @@ const IsValidCPF = (cpf) => {
         elem.nextElementSibling.classList.add('error-hidden')
 
      }
+     const invalidateElem = (elem) => {
+        elem.classList.add('invalid')
+            elem.nextElementSibling.classList.remove('error-hidden')
+            isValidForm = false
+     }
 
     const validateInput = () => {
         isValidForm = true
         if(!inputName.value){
-            inputName.classList.add('invalid')
-            inputName.nextElementSibling.classList.remove('error-hidden')
-            isValidForm = false
+            invalidateElem(inputName)
         }
         if(!isValidEmail(inputEmail.value)){
-            inputEmail.classList.add('invalid')
-            inputEmail.nextElementSibling.classList.remove('error-hidden')
-            isValidForm = false
+          invalidateElem(inputEmail)
+        }
+        if(!isValidCPF(inputCPF.value)){
+          invalidateElem(inputCPF)
         }
     }
+    
 
     form.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -61,3 +67,8 @@ const IsValidCPF = (cpf) => {
         
         
     })
+    inputCPF.addEventListener('input',()=> {
+      resetInput(inputCPF)
+      
+      
+  })
